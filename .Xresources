@@ -1,0 +1,80 @@
+!          #_--"""""--_#
+!        #*             *#
+!      #+           .----.+#
+!    #.'           /-*-.  \'.#
+!   #/            / _/..\  \ \#   =================================================
+!  #:         _.--*'__-.*   * :#   _                     __ _     _            _
+!  #|    _.- ' __     /  ____\|#  | |_ _   _ _ __   ___ / _(_)___| |__    __ _| |_
+!  #|  <.     //\\   :_./    \|#  | __| | | | '_ \ / _ \ |_| / __| '_ \  / _` | __|
+!  #|  __'>   \\//   : |      |#  | |_| |_| | | | |  __/  _| \__ \ | | || (_| | |_
+!  #:  `.             \'     /:#   \__|\__,_|_| |_|\___|_| |_|___/_| |_(_)__,_|\__|
+!   #\   `.            '.__.'/#   =================================================
+!    #'.    `- _    _.-'   .'#
+!      #+       '*-----___+#                        /r/unixporn
+!       ##.             .##
+!          #*--.....--*#
+
+!! terminal colorscheme
+! special
+*.foreground:   #e6e1dc
+*.background:   #505050
+*.cursorColor:  #e6e1dc
+! black
+*.color0:       #2b2b2b
+*.color8:       #5a647e
+! red
+*.color1:       #da4939
+*.color9:       #da4939
+! green
+*.color2:       #a5c261
+*.color10:      #a5c261
+! yellow
+*.color3:       #ffc66d
+*.color11:      #ffc66d
+! blue
+*.color4:       #6d9cbe
+*.color12:      #6d9cbe
+! magenta
+*.color5:       #b6b3eb
+*.color13:      #b6b3eb
+! cyan
+*.color6:       #519f50
+*.color14:      #519f50
+! white
+*.color7:       #e6e1dc
+*.color15:      #f9f7f3
+
+!! URxvt Appearance
+URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+urxvt*transparent: true
+urxvt*shading: 15
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
