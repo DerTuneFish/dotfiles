@@ -16,8 +16,8 @@
 
 
 
-# attatch tmux session if it exists
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+# attatch tmux session if it exists and we don't run i3
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] && ! pgrep -x "i3" > /dev/null; then
     tmux -2 attach -t default || tmux -2 new -s default
 fi
 
