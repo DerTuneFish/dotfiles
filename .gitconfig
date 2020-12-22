@@ -1,5 +1,0 @@
-[user]
-	email = moritz.waser@student.tugraz.at
-	name = Moritz Waser
-[alias]
-	graph = log --color --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
