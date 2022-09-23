@@ -16,19 +16,26 @@
 #             #*--.....--*#
 #
 #  Dependencies:
-#    > i3status
-#    > dmenu
-#    > feh
+#    > polybar -- status bar
+#    > rofi    -- app launcher
+#    > feh     -- image viewer & wallpaper
+#    > i3lock  -- screen lock
+#    > picom   -- compositor
+#    > scrot   -- screenshot tool
 #
 # Check out https://i3wm.org/docs/userguide.html for a complete reference!
 
 ###-[ basic appearance settings ]-###
 font pango:monospace 8
-gaps outer 5
 gaps inner 5
+#gaps outer 10
 default_border pixel 0
 for_window [class="^.*"] border pixel 2
 floating_modifier $mod
+
+# Color config
+# class        border   background text     indicator child_border
+client.focused #240838  #240838    #240838  #240838   #240838
 
 # make gtk file chooser dialog usable
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
@@ -36,37 +43,42 @@ for_window [window_role="GtkFileChooserDialog"] move position center
 
 ###-[ startup ]-###
 # sets background image and initializes X server session settings
-exec_always --no-startup-id feh --bg-scale '/home/tsuna/.background/wallpaper.jpg'
+	exec_always --no-startup-id feh --bg-scale '/home/tunefish/.config/i3/wallpaper.png'
 exec_always xrdb ~/.Xresources
+exec "setxkbmap -layout de"
+
+###-[ Autostart ]-###
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec pipewire
+exec qpwgraph -m
+# exec pa-applet
+# exec nm-tray
+exec picom --experimental-backends
 
 ###-[ variable setting ]-###
 set $mod     Mod4
 set $term    urxvt
 set $browser firefox
-set $fileman ranger
-set $ws1     "1"
-set $ws2     "2"
-set $ws3     "3"
-set $ws4     "4"
-set $ws5     "5"
-set $ws6     "6"
-set $ws7     "7"
-set $ws8     "8"
-set $ws9     "9"
-set $ws10    "10"
+set $fileman lf
 
-###-[ status bar ]-###
-bar {
-        status_command i3status
-	position top
-}
+### -[ Workspace Names ]-###
+set $ws1   "1"
+set $ws2   "2"
+set $ws3   "3"
+set $ws4   "4"
+set $ws5   "5"
+set $ws6   "6"
+set $ws7   "7"
+set $ws8   "8"
+set $ws9   "9"
+set $ws10  "10"
 
 ###-[ basic keybindings ]-###
 bindsym $mod+Return         exec $term
 bindsym $mod+Shift+q        kill
-bindsym $mod+d              exec dmenu_run
-bindsym $mod+Shift+l        exec "i3lock -i /home/tsuna/.background/oopsie.png"
-bindsym Print exec scrot -q 100 '%Y-%m-%d-%s_screenshot_$wx$h.png' -e 'mv $f ~/Bilder/Screenshots'
+bindsym $mod+d              exec rofi -show run
+bindsym $mod+shift+s        exec "i3lock -i $HOME/.config/i3/wallpaper_blur.png"
+bindsym Print exec scrot -q 100 '%Y-%m-%d-%s_screenshot_$wx$h.png' -e 'mv $f $HOME/Bilder/Screenshots'
 
 # program shortcuts
 bindsym $mod+w              exec $browser
@@ -78,23 +90,24 @@ bindsym $mod+F1             reload
 bindsym $mod+F2             restart
 bindsym $mod+F3             exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"
 
-# change focus
-bindsym $mod+Left           focus left
-bindsym $mod+Down           focus down
-bindsym $mod+Up             focus up
-bindsym $mod+Right          focus right
+# change focus (vim keybindings & don't follow mouse)
+focus_follows_mouse         no
+bindsym $mod+h              focus left
+bindsym $mod+j              focus down
+bindsym $mod+k              focus up
+bindsym $mod+l              focus right
 
 # move focused window
-bindsym $mod+Shift+Left     move left
-bindsym $mod+Shift+Down     move down
-bindsym $mod+Shift+Up       move up
-bindsym $mod+Shift+Right    move right
+bindsym $mod+Shift+h        move left
+bindsym $mod+Shift+j        move down
+bindsym $mod+Shift+k        move up
+bindsym $mod+Shift+l        move right
 
 # resize focused window
-bindsym $mod+Ctrl+Left      resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+Down      resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Up        resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Right     resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+h         resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+j         resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+k         resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+l         resize grow width 5 px or 5 ppt
 
 # split direction toggle
 bindsym $mod+t              split toggle

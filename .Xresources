@@ -44,9 +44,13 @@
 *.color7:       #e6e1dc
 *.color15:      #f9f7f3
 
+!! i3
+i3-wm.client.focused.color.child_border: #240838
+
 !! URxvt Appearance
 URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true
 URxvt.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
+
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -59,7 +63,7 @@ URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
-urxvt*transparent: true
+urxvt*transparent: false
 urxvt*shading: 15
 
 !! Copy Paste & Other Extensions
