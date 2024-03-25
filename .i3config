@@ -50,10 +50,12 @@ exec "setxkbmap -layout de"
 ###-[ Autostart ]-###
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec pipewire
+exec wireplumber
+exec pipewire-pulse
 exec qpwgraph -m
 # exec pa-applet
 # exec nm-tray
-exec picom --experimental-backends
+exec picom --backend glx
 
 ###-[ variable setting ]-###
 set $mod     Mod4
@@ -89,6 +91,7 @@ bindsym $mod+s              exec $term -e htop
 bindsym $mod+F1             reload
 bindsym $mod+F2             restart
 bindsym $mod+F3             exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"
+bindsym $mod+F5             exec "/home/tunefish/.screenlayout/setup_screens.py"
 
 # change focus (vim keybindings & don't follow mouse)
 focus_follows_mouse         no

@@ -46,6 +46,8 @@
 
 !! i3
 i3-wm.client.focused.color.child_border: #240838
+Xcursor.size: 24
+Xcursor.theme: DMZ-White
 
 !! URxvt Appearance
 URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true

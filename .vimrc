@@ -14,12 +14,24 @@
 "        ##.             .##
 "           #*--.....--*#
 
+" Plugins
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'tribela/vim-transparent'
+Plug 'farmergreg/vim-lastplace'
+Plug 'vhda/verilog_systemverilog.vim'
+Plug 'preservim/tagbar'
+" Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ap/vim-buftabline'
+call plug#end()
 
 " activate syntax highlighting
 syntax on
 
 " colorscheme
-colorscheme peachpuff
+" colorscheme peachpuff
 
 " set indent to 4 spaces
 filetype plugin indent on
@@ -62,8 +74,8 @@ let mapleader = " "
 
 " change split with <leader>+hjkl
 map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
+map <leader>j :bprev<CR>
+map <leader>k :bnext<CR>
 map <leader>l :wincmd l<CR>
 
 " use arrow keys to resize buffers
@@ -71,4 +83,9 @@ nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
+
+" use Ctrl-P to open file finder using fzf
+" use Ctrl-B to open buffer finder using fzf
+map <C-p> :Files<CR>
+map <C-b> :Buffers<CR>
 
